@@ -1,4 +1,6 @@
 import Hapi from '@hapi/hapi'
+import routes from './routes'
+import { db } from './database'
 
 const start = async () => {
     const server = Hapi.server({
@@ -6,13 +8,7 @@ const start = async () => {
         host: "localhost",
     })
 
-    server.route({
-        method: "GET",
-        path: '/hello',
-        handler: (req, res) => {
-            return "Hello"
-        }
-    })
+    routes.forEach(route => server.route(route))
 
     await server.start();
     console.log(`Server is listening on ${server.info.uri}`)
