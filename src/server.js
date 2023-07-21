@@ -21,10 +21,6 @@ const start = async () => {
   }
 };
 
-// process.on('unhandledRejection', err => {
-
-// })
-
 process.on("SIGINT", async () => {
   console.log("Stopping server...");
 

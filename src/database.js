@@ -11,13 +11,15 @@ const pool = mysql.createPool({
 });
 
 export const db = {
-  // connect: () => connection.connect(),
   query: (queryString, escapedValues) =>
     new Promise((resolve, reject) => {
       pool.query(queryString, escapedValues, (error, results, fields) => {
-        if (error) reject(error);
-        resolve({ results, fields });
+        if (error) {
+          console.error("Database query error:", error);
+          reject(error);
+        } else {
+          resolve({ results, fields });
+        }
       });
     }),
-  // end: () => connection.end(),
 };

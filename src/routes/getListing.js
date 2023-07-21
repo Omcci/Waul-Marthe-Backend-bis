@@ -9,7 +9,7 @@ export const getListingRoute = {
     const { results } = await db.query("select * from listings where id=?", [
       id,
     ]);
-    const listing = results[0]
+    const listing = results[0];
     if (!listing) throw Boom.notFound(`Listing does not exist with id :${id}`);
     return listing;
   },
