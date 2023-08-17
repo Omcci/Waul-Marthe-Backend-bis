@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,13 +16,16 @@
     "@hapi/hapi": "^21.3.2",
     "dotenv": "^16.3.1",
     "firebase-admin": "^11.10.1",
+    "mssql": "^9.1.2",
     "mysql2": "^3.5.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
     "@babel/node": "^7.22.6",
     "@babel/plugin-transform-runtime": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
     "nodemon": "^3.0.1"
   }
 }
