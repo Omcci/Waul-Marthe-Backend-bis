@@ -7,8 +7,8 @@ export const addViewToListingRoute = {
   path: "/api/listings/{id}/add-view",
   handler: async (req, h) => {
     const id = req.params.id;
-    await db.query("Update listings set views=views+1 where id =?", [id]);
-    const { recordset } = await db.query("select * from listings where id= ?", [id]);
+    await db.query(`Update listings set views=views+1 where id =@param0`,[id] );
+    const { recordset } = await db.query("select * from listings where id= @param0", [id]);
     const updatedListing = recordset[0];
     return updatedListing;
   },
